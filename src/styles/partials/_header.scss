@@ -1,16 +1,39 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 1rem;
+   background: #202C36;
+   color: #fff;
+   height: 8rem;
+   padding: 3rem 1.6rem;
 
-  &__dark-mode-button {
-    display: flex;
-    align-items: center;
-  }
+   &--light {
+      background: #fff;
+      color: #111517;
+   }
 
-  &__dark-mode-icon {
-    height: 0.75rem;
-    margin-right: 0.5rem;
-  }
+   &__logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      line-height: 2rem;
+   }
+
+   &__dark-mode-button {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      outline: none;
+
+      &--light {
+         color: #111517;
+      }
+   }
+
+   &__dark-mode-icon {
+      height: 0.75rem;
+      margin-right: 0.5rem;
+   }
 }

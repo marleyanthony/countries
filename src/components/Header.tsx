@@ -1,12 +1,16 @@
-import moonLight from '../assets/icons/moon-light.png';
-import moonDark from '../assets/icons/moon-dark.png';
+import lightMode from '../assets/icons/light-mode.png';
+import darkMode from '../assets/icons/moon-dark.svg';
 import { ThemeContext } from '../context/ThemeContext'
 import { useContext } from 'react';
 
 const Header = () => {
    const theme = useContext(ThemeContext);
    return (
-      <div className="header">
+      <div className={
+         theme.theme === 'light'
+            ? 'header header--light'
+            : 'header'
+      }>
          <h5 className="header__logo">
             Where in the World?
          </h5>
@@ -15,12 +19,12 @@ const Header = () => {
                ? <button
                   className="header__dark-mode-button"
                   onClick={() => theme.toggleDarkMode('light')}>
-                  <img src={moonDark} alt="dark mode active icon" className="header__dark-mode-icon" /> Dark Mode
+                  <img src={darkMode} alt="dark mode active icon" className="header__dark-mode-icon" /> Dark Mode
                </button>
                : <button
-                  className="header__dark-mode-button"
+                  className="header__dark-mode-button header__dark-mode-button--light"
                   onClick={() => theme.toggleDarkMode('dark')}>
-                  <img src={moonLight} alt="light mode active icon" className="header__dark-mode-icon" /> Light Mode
+                  <img src={lightMode} alt="light mode active icon" className="header__dark-mode-icon" /> Light Mode
                </button>
          }
       </div>
