@@ -1,5 +1,7 @@
 import './styles/main.css';
 import Header from './components/Header';
+import Search from './components/Search';
+import Main from './components/Main';
 import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
@@ -7,6 +9,7 @@ function App() {
       <ThemeProvider>
          <div className="app">
             <Header />
+            <Main />
          </div>
       </ThemeProvider>
    );
