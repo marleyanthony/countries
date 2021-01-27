@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  &__dark-mode-button {
+    display: flex;
+    align-items: center;
+  }
+
+  &__dark-mode-icon {
+    height: 0.75rem;
+    margin-right: 0.5rem;
+  }
+}
