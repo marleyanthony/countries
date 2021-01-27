@@ -1,12 +1,15 @@
-import './styles/main.css'
+import './styles/main.css';
 import Header from './components/Header';
+import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
-  return (
-    <div className="app">
-       <Header />
-    </div>
-  );
+   return (
+      <ThemeProvider>
+         <div className="app">
+            <Header />
+         </div>
+      </ThemeProvider>
+   );
 }
 
 export default App;
