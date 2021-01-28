@@ -203,6 +203,7 @@
   border-radius: 5px;
   background: #2B3844;
   margin-bottom: 4rem;
+  color: #fff;
 }
 
 .card-wrapper__card--light {
@@ -296,6 +297,107 @@
   }
 }
 
+.country {
+  padding: 5rem 2.8rem;
+  background: #202C36;
+}
+
+.country__link {
+  margin-top: 4rem;
+  border: 1px solid red;
+}
+
+.country__back-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.2rem;
+  width: 10rem;
+  background: #2B3844;
+  color: #fff;
+  border: none;
+  margin: 0 0 6.4rem;
+}
+
+.country__back-arrow {
+  height: 1rem;
+  margin-right: 1rem;
+}
+
+.country__flag {
+  width: 100%;
+  margin-bottom: 4.4rem;
+}
+
+.country__img {
+  width: 100%;
+  border-radius: 7px;
+}
+
+.country__info {
+  color: #fff;
+}
+
+.country__name {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 3rem;
+  margin-bottom: 1.6rem;
+}
+
+.country__label {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 3.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country__languages-wrapper p {
+  font-size: 1.4rem;
+}
+
+.country__label-bold {
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+.country__border-heading {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.country__border-country-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.country__border {
+  background: #2B3844;
+  margin: 0 2rem 1rem 0;
+  padding: 1rem 4rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -303,5 +405,9 @@
           box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
   font-size: 10px;
+}
+
+a {
+  text-decoration: none;
 }
 /*# sourceMappingURL=main.css.map */

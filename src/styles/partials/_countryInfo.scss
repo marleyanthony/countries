@@ -1,0 +1,87 @@
+.country {
+   padding: 5rem 2.8rem;
+   background: #202C36;
+
+   &__link {
+      margin-top: 4rem;
+      border: 1px solid red;
+   }
+
+   &__back-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.2rem;
+      width: 10rem;
+      background: #2B3844;
+      color: #fff;
+      border: none;
+      margin: 0 0 6.4rem;
+   }
+
+   &__back-arrow {
+      height: 1rem;
+      margin-right: 1rem;
+   }
+
+   &__flag {
+      width: 100%;
+      margin-bottom: 4.4rem;
+   }
+
+   &__img {
+      width: 100%;
+      border-radius: 7px;
+   }
+
+   &__info {
+      color: #fff;
+   }
+
+   &__name {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 3rem;
+      margin-bottom: 1.6rem;
+   }
+
+   &__label {
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 300;
+      line-height: 3.2rem;
+      display: flex;
+      align-items: center;
+   }
+
+   &__languages-wrapper {
+      p {
+         font-size: 1.4rem;
+      }
+   }
+
+   &__label-bold {
+      font-weight: 400;
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+   }
+
+   &__border-heading {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.4rem;
+      margin-bottom: 2rem;
+   }
+
+   &__border-country-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+   }
+
+   &__border {
+      background: #2B3844;
+      margin: 0 2rem 1rem 0;
+      padding: 1rem 4rem;
+   }
+}

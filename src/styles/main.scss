@@ -2,6 +2,7 @@
 @import './partials/_mixins.scss';
 @import './partials/header';
 @import './partials/mainPage';
+@import './partials/countryInfo';
 
 * {
    margin: 0;
@@ -9,4 +10,8 @@
    box-sizing: border-box;
    font-family: 'Nunito Sans', sans-serif;
    font-size: 10px;
+}
+
+a {
+   text-decoration: none;
 }
