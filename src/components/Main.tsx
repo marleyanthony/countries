@@ -1,7 +1,6 @@
 import { ThemeContext } from '../context/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { count } from 'console';
 
 const Main = () => {
    const theme = useContext(ThemeContext);
@@ -10,7 +9,11 @@ const Main = () => {
 
    useEffect(() => {
       axios
-         .get(`https://restcountries.eu/rest/v2/name/${userInput}`)
+         .get(
+            userInput
+               ? `https://restcountries.eu/rest/v2/name/${userInput}`
+               : 'https://restcountries.eu/rest/v2/all'
+         )
          .then(res => {
             setCurrentCountry(res.data);
          })
@@ -26,16 +29,27 @@ const Main = () => {
          <section className="search">
             <input
                type="text"
-               className="search__input"
+               className={theme.theme === 'light' ? 'search__input--light search__input' : 'search__input'}
                placeholder="Search for a country..."
                onChange={handleUserInput}
             />
          </section>
-         <section className="card-wrapper">
+         <section className={
+            theme.theme === 'light'
+               ? "card-wrapper card-wrapper--light"
+               : "card-wrapper"
+         }
+         >
             {
                currentCountry.map((country, index) => {
                   return (
-                     <div className="card-wrapper__card" key={index}>
+                     <div className={
+                        theme.theme === 'light'
+                           ? "card-wrapper__card card-wrapper__card--light"
+                           : "card-wrapper__card"
+                     }
+                        key={index}
+                     >
                         <div className="card-wrapper__img">
                            <img src={country.flag} alt={`${country.name} + flag`} className="card-wrapper__flag" />
                         </div>
