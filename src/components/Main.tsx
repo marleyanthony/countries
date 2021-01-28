@@ -77,7 +77,7 @@ const Main = () => {
                   }
 
                   return (
-                     <Link to="/country-info">
+                     <Link to={{ pathname: "/country-info", state: country }}>
                         <div className={
                            theme.theme === 'light'
                               ? "card-wrapper__card card-wrapper__card--light"
