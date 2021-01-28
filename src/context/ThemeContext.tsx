@@ -8,7 +8,7 @@ export interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps);
 
 export const ThemeProvider: React.FC = ({ children }) => {
-   const [theme, setTheme] = useState('light');
+   const [theme, setTheme] = useState('dark');
 
    const toggleDarkMode = (theme: any) => {
       setTheme(theme);

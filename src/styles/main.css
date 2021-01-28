@@ -96,6 +96,73 @@
   outline: none;
 }
 
+.card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 12rem 0;
+}
+
+.card-wrapper__card {
+  width: 26.4rem;
+  height: 33.6rem;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #2B3844;
+}
+
+.card-wrapper__img {
+  height: 16rem;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card-wrapper__flag {
+  height: 100%;
+}
+
+.card-wrapper__content {
+  padding: 2.4rem;
+}
+
+.card-wrapper__country-name {
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 2.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.card-wrapper__info {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.card-wrapper__bold {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.6rem;
+  margin-right: 0.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;

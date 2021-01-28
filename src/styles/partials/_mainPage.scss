@@ -38,3 +38,61 @@
       }
    }
 }
+
+
+
+// ! card 
+.card-wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 12rem 0;
+
+   &__card {
+      width: 26.4rem;
+      height: 33.6rem;
+      overflow: hidden;
+      border-radius: 5px;
+      background: #2B3844;
+   }
+
+   &__img {
+      height: 16rem;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   &__flag {
+      // width: 100%;
+      height: 100%;
+   }
+
+   &__content {
+      padding: 2.4rem;
+   }
+
+   &__country-name {
+      font-size: 1.8rem;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 2.6rem;
+      margin-bottom: 1.6rem;
+   }
+
+   &__info {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.6rem;
+      margin-bottom: 0.8rem;
+   }
+
+   &__bold {
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.6rem;
+      margin-right: 0.5rem;
+   }
+}
