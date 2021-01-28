@@ -16,6 +16,12 @@
   padding: 3rem 1.6rem;
 }
 
+@media (min-width: 600px) {
+  .header {
+    padding: 3rem 5rem;
+  }
+}
+
 .header--light {
   background: #fff;
   color: #111517;
@@ -59,6 +65,26 @@
 .main--light {
   background: #f2f2f2;
   color: #111517;
+}
+
+@media (min-width: 600px) {
+  .main__search-select-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main__search-select-wrapper {
+    padding: 1rem 13rem;
+  }
 }
 
 .search__input {
@@ -121,6 +147,12 @@
   color: #c4c4c4;
 }
 
+@media (min-width: 600px) {
+  .search__input {
+    width: 35rem;
+  }
+}
+
 .card-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -139,6 +171,31 @@
   background-color: #f2f2f2;
 }
 
+@media (min-width: 600px) {
+  .card-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: area;
+        grid-template-areas: 'area area';
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card-wrapper {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    grid-area: area;
+        grid-template-areas: 'area area area';
+  }
+}
+
 .card-wrapper__card {
   width: 26.4rem;
   min-height: 33.6rem;
@@ -150,6 +207,12 @@
 
 .card-wrapper__card--light {
   background-color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  .card-wrapper__card {
+    margin: 0 3rem 5rem;
+  }
 }
 
 .card-wrapper__img {
@@ -168,8 +231,10 @@
 }
 
 .card-wrapper__flag {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .card-wrapper__content {
@@ -223,6 +288,12 @@
 .drop-down__select option {
   border: 1px solid red;
   background-color: green;
+}
+
+@media (min-width: 600px) {
+  .drop-down__select {
+    margin-top: 0;
+  }
 }
 
 * {

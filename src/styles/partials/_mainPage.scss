@@ -1,13 +1,24 @@
 .main {
    background: #202C36;
    color: #fff;
-   // height: 100vh;
    min-height: 100vh;
    padding: 2.4rem 1.6rem;
 
    &--light {
       background: #f2f2f2;
       color: #111517;
+   }
+
+   &__search-select-wrapper {
+      @include tablet-portrait {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      }
+
+      @include desktop {
+         padding: 1rem 13rem;
+      }
    }
 }
 
@@ -50,6 +61,10 @@
             color: #c4c4c4;
          }
       }
+
+      @include tablet-portrait {
+         width: 35rem;
+      }
    }
 }
 
@@ -66,6 +81,18 @@
       background-color: #f2f2f2;
    }
 
+   @include tablet-portrait {
+      display: grid;
+      grid-area: area;
+      grid-template-areas: 'area area';
+      justify-content: center;
+   }
+
+   @include desktop {
+      grid-area: area;
+      grid-template-areas: 'area area area';
+   }
+
    &__card {
       width: 26.4rem;
       min-height: 33.6rem;
@@ -76,6 +103,10 @@
 
       &--light {
          background-color: #ffffff;
+      }
+
+      @include tablet-portrait {
+         margin: 0 3rem 5rem;
       }
    }
 
@@ -89,7 +120,9 @@
    }
 
    &__flag {
-      object-fit: contain;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
    }
 
    &__content {
@@ -145,6 +178,10 @@
       option {
          border: 1px solid red;
          background-color: green;
+      }
+
+      @include tablet-portrait {
+         margin-top: 0;
       }
    }
 }

@@ -43,24 +43,26 @@ const Main = () => {
 
    return (
       <div className={theme.theme === 'light' ? 'main main--light' : 'main'}>
-         <section className="search">
-            <input
-               type="text"
-               className={theme.theme === 'light' ? 'search__input--light search__input' : 'search__input'}
-               placeholder="Search for a country..."
-               onChange={handleUserInput}
-            />
-         </section>
-         <section className="drop-down">
-            <select name="select" id="select-country" className="drop-down__select" onChange={handleUserSelect}>
-               <option value="default">Filter By Region</option>
-               <option value="Africa">Africa</option>
-               <option value="Americas">Americas</option>
-               <option value="Asia">Asia</option>
-               <option value="Europe">Europe</option>
-               <option value="Oceania">Oceania</option>
-            </select>
-         </section>
+         <div className="main__search-select-wrapper">
+            <section className="search">
+               <input
+                  type="text"
+                  className={theme.theme === 'light' ? 'search__input--light search__input' : 'search__input'}
+                  placeholder="Search for a country..."
+                  onChange={handleUserInput}
+               />
+            </section>
+            <section className="drop-down">
+               <select name="select" id="select-country" className="drop-down__select" onChange={handleUserSelect}>
+                  <option value="default">Filter By Region</option>
+                  <option value="Africa">Africa</option>
+                  <option value="Americas">Americas</option>
+                  <option value="Asia">Asia</option>
+                  <option value="Europe">Europe</option>
+                  <option value="Oceania">Oceania</option>
+               </select>
+            </section>
+         </div>
          <section className={
             theme.theme === 'light'
                ? "card-wrapper card-wrapper--light"

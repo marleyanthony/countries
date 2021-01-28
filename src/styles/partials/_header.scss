@@ -8,6 +8,10 @@
    height: 8rem;
    padding: 3rem 1.6rem;
 
+   @include tablet-portrait {
+      padding: 3rem 5rem;
+   }
+
    &--light {
       background: #fff;
       color: #111517;

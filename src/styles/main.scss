@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800&display=swap');
-@import "./partials/header";
+@import './partials/_mixins.scss';
+@import './partials/header';
 @import './partials/mainPage';
 
 * {
