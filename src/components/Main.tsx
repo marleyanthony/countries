@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { ThemeContext } from '../context/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
@@ -76,34 +77,36 @@ const Main = () => {
                   }
 
                   return (
-                     <div className={
-                        theme.theme === 'light'
-                           ? "card-wrapper__card card-wrapper__card--light"
-                           : "card-wrapper__card"
-                     }
-                        key={index}
-                     >
-                        <div className="card-wrapper__img">
-                           <img src={country.flag} alt={`${country.name} + flag`} className="card-wrapper__flag" />
+                     <Link to="/country-info">
+                        <div className={
+                           theme.theme === 'light'
+                              ? "card-wrapper__card card-wrapper__card--light"
+                              : "card-wrapper__card"
+                        }
+                           key={index}
+                        >
+                           <div className="card-wrapper__img">
+                              <img src={country.flag} alt={`${country.name} + flag`} className="card-wrapper__flag" />
+                           </div>
+                           <div className="card-wrapper__content">
+                              <h2 className="card-wrapper__country-name">
+                                 {country.name}
+                              </h2>
+                              <p className="card-wrapper__info">
+                                 <span className="card-wrapper__bold">Population:</span>
+                                 {numberWithCommas(country.population)}
+                              </p>
+                              <p className="card-wrapper__info">
+                                 <span className="card-wrapper__bold">Region:</span>
+                                 {country.region}
+                              </p>
+                              <p className="card-wrapper__info">
+                                 <span className="card-wrapper__bold">Capital:</span>
+                                 {country.capital}
+                              </p>
+                           </div>
                         </div>
-                        <div className="card-wrapper__content">
-                           <h2 className="card-wrapper__country-name">
-                              {country.name}
-                           </h2>
-                           <p className="card-wrapper__info">
-                              <span className="card-wrapper__bold">Population:</span>
-                              {numberWithCommas(country.population)}
-                           </p>
-                           <p className="card-wrapper__info">
-                              <span className="card-wrapper__bold">Region:</span>
-                              {country.region}
-                           </p>
-                           <p className="card-wrapper__info">
-                              <span className="card-wrapper__bold">Capital:</span>
-                              {country.capital}
-                           </p>
-                        </div>
-                     </div>
+                     </Link>
                   )
                })
             }
