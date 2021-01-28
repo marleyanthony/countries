@@ -132,7 +132,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 12rem 0;
+  margin: 5rem 0;
 }
 
 .card-wrapper--light {
@@ -196,6 +196,33 @@
   font-weight: 800;
   line-height: 1.6rem;
   margin-right: 0.5rem;
+}
+
+.drop-down__select {
+  margin-top: 4rem;
+  width: 20rem;
+  height: 4.8rem;
+  padding: 1.4rem 2rem;
+  border-radius: 5px;
+  background: #2B3844;
+  color: #fff;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("/src/assets/icons/drop-down-arrow-light.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 1rem 1rem;
+}
+
+.drop-down__select:focus {
+  outline: none;
+}
+
+.drop-down__select option {
+  border: 1px solid red;
+  background-color: green;
 }
 
 * {

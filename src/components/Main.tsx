@@ -5,6 +5,7 @@ import axios from 'axios';
 const Main = () => {
    const theme = useContext(ThemeContext);
    const [userInput, setUserInput] = useState('');
+   const [userSelect, setUserSelect] = useState('');
    const [currentCountry, setCurrentCountry] = useState<any[]>([]);
 
    useEffect(() => {
@@ -19,9 +20,25 @@ const Main = () => {
          })
    }, [userInput])
 
+   useEffect(() => {
+      axios
+         .get(
+            userSelect
+               ? `https://restcountries.eu/rest/v2/region/${userSelect}`
+               : 'https://restcountries.eu/rest/v2/all'
+         )
+         .then(res => {
+            setCurrentCountry(res.data);
+         })
+   }, [userSelect])
+
    const handleUserInput = (e: any) => {
       setUserInput(e.target.value);
       console.log(userInput)
+   }
+
+   const handleUserSelect = (e: any) => {
+      setUserSelect(e.target.value);
    }
 
    return (
@@ -34,6 +51,16 @@ const Main = () => {
                onChange={handleUserInput}
             />
          </section>
+         <section className="drop-down">
+            <select name="select" id="select-country" className="drop-down__select" onChange={handleUserSelect}>
+               <option value="default">Filter By Region</option>
+               <option value="Africa">Africa</option>
+               <option value="Americas">Americas</option>
+               <option value="Asia">Asia</option>
+               <option value="Europe">Europe</option>
+               <option value="Oceania">Oceania</option>
+            </select>
+         </section>
          <section className={
             theme.theme === 'light'
                ? "card-wrapper card-wrapper--light"
@@ -42,6 +69,10 @@ const Main = () => {
          >
             {
                currentCountry.map((country, index) => {
+                  let numberWithCommas = (x: number) => {
+                     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                  }
+
                   return (
                      <div className={
                         theme.theme === 'light'
@@ -59,7 +90,7 @@ const Main = () => {
                            </h2>
                            <p className="card-wrapper__info">
                               <span className="card-wrapper__bold">Population:</span>
-                              {country.population}
+                              {numberWithCommas(country.population)}
                            </p>
                            <p className="card-wrapper__info">
                               <span className="card-wrapper__bold">Region:</span>
