@@ -7,7 +7,7 @@ import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
    return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
          <ThemeProvider>
             <div className="app">
                <Header />
