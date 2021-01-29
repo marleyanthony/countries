@@ -8,6 +8,7 @@ const Main = () => {
    const [userInput, setUserInput] = useState('');
    const [userSelect, setUserSelect] = useState('');
    const [currentCountry, setCurrentCountry] = useState<any[]>([]);
+   const [covidData, setCovidData] = useState<any[]>([]);
 
    useEffect(() => {
       axios
@@ -33,9 +34,26 @@ const Main = () => {
          })
    }, [userSelect])
 
+   useEffect(() => {
+      axios
+         .get('https://covid-193.p.rapidapi.com/statistics', {
+            params: {
+               country: `${userInput}`
+            },
+            headers: {
+               'x-rapidapi-key': '3818ad22a4msh5ab33bee728bfc6p144e31jsn8f038c1a2731',
+               'x-rapidapi-host': 'covid-193.p.rapidapi.com'
+            }
+         })
+         .then(res => {
+            setCovidData(res.data)
+         }).catch(function (error) {
+            console.error(error);
+         });
+   }, [userInput])
+
    const handleUserInput = (e: any) => {
       setUserInput(e.target.value);
-      console.log(userInput)
    }
 
    const handleUserSelect = (e: any) => {
@@ -77,7 +95,7 @@ const Main = () => {
                   }
 
                   return (
-                     <Link to={{ pathname: "/country-info", state: country }}>
+                     <Link to={{ pathname: "/country-info", state: { country, covidData } }}>
                         <div className={
                            theme.theme === 'light'
                               ? "card-wrapper__card card-wrapper__card--light"
