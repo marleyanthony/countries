@@ -1,8 +1,7 @@
 import { ThemeContext } from '../context/ThemeContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import backArrow from '../assets/icons/back-arrow-dark.svg';
 import backArrowLight from '../assets/icons/back-arrow.svg'
-import { convertToObject } from 'typescript';
 
 const CountryInfo = (props: any) => {
    console.log(props.location.state)
@@ -10,14 +9,16 @@ const CountryInfo = (props: any) => {
    const { cases, deaths } = props.location.state.covidData.response[0];
    console.log(props.location.state.covidData.response[0]);
 
-   // useEffect(() => {
-   //    window.scrollTo(0, 0);
-   // }, []);
+   console.log(props)
+
+   useEffect(() => {
+      window.scrollTo(0, 0);
+   }, []);
 
    const theme = useContext(ThemeContext);
 
-   let numberWithCommas = (x: number) => {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+   const numberWithCommas = (numberToConvert: number) => {
+      return numberToConvert.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
    }
 
    return (
@@ -52,19 +53,27 @@ const CountryInfo = (props: any) => {
                            <span className="country__label-bold">Native Name:</span> {nativeName}
                         </p>
                         <p className="country__label">
-                           <span className="country__label-bold">Population:</span> {population}
+                           <span className="country__label-bold">Population:</span> {numberWithCommas(population)}
                         </p>
                         <p className="country__label">
                            <span className="country__label-bold">Region:</span> {region}
                         </p>
                         <p className="country__label">
-                           <span className="country__label-bold">Sub Region:</span> {subregion}
+                           <span className="country__label-bold">Sub Region:</span> {
+                              subregion
+                                 ? subregion
+                                 : 'None. Guess this place is too small.'
+                           }
                         </p>
                         <p className="country__label">
-                           <span className="country__label-bold">Capital:</span> {capital}
+                           <span className="country__label-bold">Capital:</span> {
+                              capital
+                                 ? capital
+                                 : 'None, for some reason...'
+                           }
                         </p>
                         <p className="country__label">
-                           <span className="country__label-bold">Currency:</span> {currencies[0].code}
+                           <span className="country__label-bold">Currency:</span> {currencies[0].code}, {currencies[0].name}
                         </p>
                         <div className="country__label">
                            <span className="country__label-bold">Languages:</span>
@@ -79,7 +88,7 @@ const CountryInfo = (props: any) => {
                                        </div>
                                     )
                                  })
-                                 : ''
+                                 : 'No languages reported...'
                            }
                         </div>
                      </div>
@@ -98,7 +107,7 @@ const CountryInfo = (props: any) => {
                                     </p>
                                  )
                               })
-                              : ''
+                              : <p className="country__border">None, it's an island. Duh. 🏝</p>
                         }
                      </div>
                   </div>

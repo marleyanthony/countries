@@ -69,6 +69,14 @@ const Main = () => {
       setUserSelect(e.target.value);
    }
 
+   // const clearState = () => {
+   //    setUserInput('');
+   //    setUserSelect('');
+   //    setCurrentCountry([]);
+   //    setCovidData([]);
+   //    setUserSelectedCountry('');
+   // }
+
    return (
       <div className={theme.theme === 'light' ? 'main main--light' : 'main'}>
          <div className="main__search-select-wrapper">
