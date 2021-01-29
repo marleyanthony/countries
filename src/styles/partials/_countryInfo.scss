@@ -1,10 +1,25 @@
 .country {
    padding: 5rem 2.8rem;
    background: #202C36;
+   min-height: 100vh;
+
+   @include tablet-portrait {
+      padding: 5rem 10rem;
+   }
+
+   &--light {
+      background-color: #fff;
+   }
 
    &__link {
       margin-top: 4rem;
       border: 1px solid red;
+   }
+
+   &__desktop-wrapper {
+      @include desktop {
+         display: flex;
+      }
    }
 
    &__back-button {
@@ -17,6 +32,12 @@
       color: #fff;
       border: none;
       margin: 0 0 6.4rem;
+
+      &--light {
+         background-color: #fff;
+         color: #000000;
+         border: 1px solid #d4d4d4;
+      }
    }
 
    &__back-arrow {
@@ -27,6 +48,14 @@
    &__flag {
       width: 100%;
       margin-bottom: 4.4rem;
+
+      @include tablet-portrait {
+         width: 75%;
+      }
+
+      @include desktop {
+         width: 50%;
+      }
    }
 
    &__img {
@@ -36,6 +65,20 @@
 
    &__info {
       color: #fff;
+
+      &--light {
+         color: #000000;
+      }
+
+      @include tablet-portrait {
+         display: flex;
+         justify-content: space-between;
+      }
+
+      @include desktop {
+         width: 50%;
+         padding: 0 5rem;
+      }
    }
 
    &__name {
@@ -67,10 +110,15 @@
    }
 
    &__border-heading {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: 400;
       line-height: 2.4rem;
-      margin-bottom: 2rem;
+      margin-right: 0.5rem;
+   }
+
+   &__border-wrapper {
+      display: flex;
+      align-items: center;
    }
 
    &__border-country-wrapper {
@@ -80,8 +128,17 @@
    }
 
    &__border {
-      background: #2B3844;
-      margin: 0 2rem 1rem 0;
-      padding: 1rem 4rem;
+      font-size: 1.4rem;
+   }
+
+
+   // ! covid data 
+   &__covid-header {
+      font-size: 2.2rem;
+      margin: 2rem 0 1rem;
+
+      @include tablet-portrait {
+         margin-top: 0;
+      }
    }
 }

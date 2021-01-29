@@ -9,6 +9,7 @@ const Main = () => {
    const [userSelect, setUserSelect] = useState('');
    const [currentCountry, setCurrentCountry] = useState<any[]>([]);
    const [covidData, setCovidData] = useState<any[]>([]);
+   const [userSelectedCountry, setUserSelectedCountry] = useState('');
 
    useEffect(() => {
       axios
@@ -19,8 +20,12 @@ const Main = () => {
          )
          .then(res => {
             setCurrentCountry(res.data);
+            setUserSelectedCountry(currentCountry[0].name)
          })
-   }, [userInput])
+         .catch(error => {
+            console.error(error);
+         });
+   }, [userInput, currentCountry])
 
    useEffect(() => {
       axios
@@ -32,13 +37,16 @@ const Main = () => {
          .then(res => {
             setCurrentCountry(res.data);
          })
+         .catch(error => {
+            console.error(error);
+         });
    }, [userSelect])
 
    useEffect(() => {
       axios
          .get('https://covid-193.p.rapidapi.com/statistics', {
             params: {
-               country: `${userInput}`
+               country: `${userSelectedCountry}`
             },
             headers: {
                'x-rapidapi-key': '3818ad22a4msh5ab33bee728bfc6p144e31jsn8f038c1a2731',
@@ -47,10 +55,11 @@ const Main = () => {
          })
          .then(res => {
             setCovidData(res.data)
-         }).catch(function (error) {
+         })
+         .catch(error => {
             console.error(error);
          });
-   }, [userInput])
+   }, [userInput, userSelectedCountry])
 
    const handleUserInput = (e: any) => {
       setUserInput(e.target.value);
@@ -95,13 +104,12 @@ const Main = () => {
                   }
 
                   return (
-                     <Link to={{ pathname: "/country-info", state: { country, covidData } }}>
+                     <Link to={{ pathname: "/country-info", state: { country, covidData } }} key={index}>
                         <div className={
                            theme.theme === 'light'
                               ? "card-wrapper__card card-wrapper__card--light"
                               : "card-wrapper__card"
                         }
-                           key={index}
                         >
                            <div className="card-wrapper__img">
                               <img src={country.flag} alt={`${country.name} + flag`} className="card-wrapper__flag" />

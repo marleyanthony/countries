@@ -300,11 +300,30 @@
 .country {
   padding: 5rem 2.8rem;
   background: #202C36;
+  min-height: 100vh;
+}
+
+@media (min-width: 600px) {
+  .country {
+    padding: 5rem 10rem;
+  }
+}
+
+.country--light {
+  background-color: #fff;
 }
 
 .country__link {
   margin-top: 4rem;
   border: 1px solid red;
+}
+
+@media (min-width: 1200px) {
+  .country__desktop-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .country__back-button {
@@ -325,6 +344,12 @@
   margin: 0 0 6.4rem;
 }
 
+.country__back-button--light {
+  background-color: #fff;
+  color: #000000;
+  border: 1px solid #d4d4d4;
+}
+
 .country__back-arrow {
   height: 1rem;
   margin-right: 1rem;
@@ -335,6 +360,18 @@
   margin-bottom: 4.4rem;
 }
 
+@media (min-width: 600px) {
+  .country__flag {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .country__flag {
+    width: 50%;
+  }
+}
+
 .country__img {
   width: 100%;
   border-radius: 7px;
@@ -342,6 +379,28 @@
 
 .country__info {
   color: #fff;
+}
+
+.country__info--light {
+  color: #000000;
+}
+
+@media (min-width: 600px) {
+  .country__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (min-width: 1200px) {
+  .country__info {
+    width: 50%;
+    padding: 0 5rem;
+  }
 }
 
 .country__name {
@@ -375,10 +434,19 @@
 }
 
 .country__border-heading {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 400;
   line-height: 2.4rem;
-  margin-bottom: 2rem;
+  margin-right: 0.5rem;
+}
+
+.country__border-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .country__border-country-wrapper {
@@ -393,9 +461,18 @@
 }
 
 .country__border {
-  background: #2B3844;
-  margin: 0 2rem 1rem 0;
-  padding: 1rem 4rem;
+  font-size: 1.4rem;
+}
+
+.country__covid-header {
+  font-size: 2.2rem;
+  margin: 2rem 0 1rem;
+}
+
+@media (min-width: 600px) {
+  .country__covid-header {
+    margin-top: 0;
+  }
 }
 
 * {
