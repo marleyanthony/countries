@@ -81,7 +81,13 @@ const Main = () => {
                />
             </section>
             <section className="drop-down">
-               <select name="select" id="select-country" className="drop-down__select" onChange={handleUserSelect}>
+               <select name="select" id="select-country"
+                  className={
+                     theme.theme === 'light'
+                        ? 'drop-down__select drop-down__select--light'
+                        : 'drop-down__select'
+                  }
+                  onChange={handleUserSelect}>
                   <option value="default">Filter By Region</option>
                   <option value="Africa">Africa</option>
                   <option value="Americas">Americas</option>

@@ -18,19 +18,38 @@
 
 @media (min-width: 600px) {
   .header {
-    padding: 3rem 5rem;
+    padding: 3rem 10rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    padding: 3rem 15rem 3rem 10rem;
   }
 }
 
 .header--light {
   background: #fff;
   color: #111517;
+  border-bottom: 1px solid #d4d4d4;
 }
 
 .header__logo {
   font-size: 1.4rem;
   font-weight: 800;
   line-height: 2rem;
+}
+
+@media (min-width: 600px) {
+  .header__logo {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__logo {
+    font-size: 2rem;
+  }
 }
 
 .header__dark-mode-button {
@@ -50,9 +69,33 @@
   color: #111517;
 }
 
+@media (min-width: 600px) {
+  .header__dark-mode-button {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__dark-mode-button {
+    font-size: 2rem;
+  }
+}
+
 .header__dark-mode-icon {
   height: 0.75rem;
   margin-right: 0.5rem;
+}
+
+@media (min-width: 600px) {
+  .header__dark-mode-icon {
+    height: 1.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header__dark-mode-icon {
+    height: 2rem;
+  }
 }
 
 .main {
@@ -208,6 +251,7 @@
 
 .card-wrapper__card--light {
   background-color: #ffffff;
+  color: #000000;
 }
 
 @media (min-width: 600px) {
@@ -277,6 +321,15 @@
      -moz-appearance: none;
           appearance: none;
   background-image: url("/src/assets/icons/drop-down-arrow-light.svg");
+  background-repeat: no-repeat;
+  background-position: 90% 50%;
+  background-size: 1rem 1rem;
+}
+
+.drop-down__select--light {
+  background: #fff;
+  color: #000000;
+  background-image: url("/src/assets/icons/drop-down-arrow.svg");
   background-repeat: no-repeat;
   background-position: 90% 50%;
   background-size: 1rem 1rem;

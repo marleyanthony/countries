@@ -9,18 +9,31 @@
    padding: 3rem 1.6rem;
 
    @include tablet-portrait {
-      padding: 3rem 5rem;
+      padding: 3rem 10rem;
+   }
+
+   @include desktop {
+      padding: 3rem 15rem 3rem 10rem;
    }
 
    &--light {
       background: #fff;
       color: #111517;
+      border-bottom: 1px solid #d4d4d4;
    }
 
    &__logo {
       font-size: 1.4rem;
       font-weight: 800;
       line-height: 2rem;
+
+      @include tablet-portrait {
+         font-size: 1.75rem;
+      }
+
+      @include desktop {
+         font-size: 2rem;
+      }
    }
 
    &__dark-mode-button {
@@ -34,10 +47,26 @@
       &--light {
          color: #111517;
       }
+
+      @include tablet-portrait {
+         font-size: 1.5rem;
+      }
+
+      @include desktop {
+         font-size: 2rem;
+      }
    }
 
    &__dark-mode-icon {
       height: 0.75rem;
       margin-right: 0.5rem;
+
+      @include tablet-portrait {
+         height: 1.5rem;
+      }
+
+      @include desktop {
+         height: 2rem;
+      }
    }
 }
