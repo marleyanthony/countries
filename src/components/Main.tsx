@@ -25,7 +25,7 @@ const Main = () => {
          .catch(error => {
             console.error(error);
          });
-   }, [userInput, currentCountry])
+   }, [userInput])
 
 
    // ! get countries by region
@@ -51,6 +51,7 @@ const Main = () => {
 
    const handleUserSelect = (e: any) => {
       setUserSelect(e.target.value);
+      console.log('user select')
    }
 
    return (

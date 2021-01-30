@@ -14,7 +14,7 @@ const Header = () => {
          <h5 className="header__logo">
             Where in the World?
          </h5>
-         {
+         {/* {
             theme.theme === 'dark'
                ? <button
                   className="header__dark-mode-button"
@@ -26,7 +26,7 @@ const Header = () => {
                   onClick={() => theme.toggleDarkMode('dark')}>
                   <img src={lightMode} alt="light mode active icon" className="header__dark-mode-icon" /> Light Mode
                </button>
-         }
+         } */}
       </div>
    )
 }

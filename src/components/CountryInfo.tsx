@@ -63,7 +63,7 @@ const CountryInfo = () => {
                return (
                   <section className={theme.theme === 'light' ? 'country country--light' : 'country'} key={index}>
                      <a
-                        href="/"
+                        href="/countries"
                         className={
                            theme.theme === 'light'
                               ? 'country__back-button country__back-button--light'
