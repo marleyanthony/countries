@@ -25,6 +25,10 @@ const CountryInfo = () => {
             }
          })
          .then(res => {
+            // res.data.response < 1
+            //    ? setCovidData([{ msg: 'This country has not reported any data...' }])
+            //    : setCovidData(res.data.response)
+            console.log(res.data.response)
             setCovidData(res.data.response);
          })
          .catch(error => {
@@ -57,7 +61,11 @@ const CountryInfo = () => {
 
    return (
       currentCountry[0] === undefined
-         ? <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
+         ? (
+            <section className="country__info-wrapper">
+               <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
+            </section>
+         )
          : <section className="country__info-wrapper">{
             currentCountry.map((country, index) => {
                return (
@@ -136,17 +144,23 @@ const CountryInfo = () => {
                                  </div>
                               </div>
                            </div>
-                           {
-                              covidData[0] === undefined
-                                 ? <h1 className="covid-data__loading-text">No Recent Covid Data Reported...</h1>
-                                 : <div className="covid-data-wrapper">
+                        </div>
+                        {
+                           covidData[0] === undefined
+                              ? (
+                                 <h1 style={{ display: 'none' }}>
+                                    Loading
+                                 </h1>
+                              )
+                              : (
+                                 <div className="covid-data-wrapper">
                                     {
                                        covidData.map((covidData, index) => {
                                           return (
                                              <div className="country__covid-data-wrapper" key={index}>
                                                 <h1 className="country__covid-header">
                                                    Covid Data
-                                             </h1>
+                                                         </h1>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">New Cases:</span>
                                                    {
@@ -188,8 +202,8 @@ const CountryInfo = () => {
                                        })
                                     }
                                  </div>
-                           }
-                        </div>
+                              )
+                        }
                      </div>
                   </section >
                )
@@ -200,3 +214,12 @@ const CountryInfo = () => {
 }
 
 export default CountryInfo
+
+
+// {
+//    covidData[0] === undefined
+//       ? <h1 className="covid-data__loading-text" style={{ color: '#fff' }}>
+//          Loading Covid Data...
+//          </h1>
+//       : 
+// }

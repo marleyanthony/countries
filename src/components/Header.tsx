@@ -1,5 +1,3 @@
-import lightMode from '../assets/icons/light-mode.png';
-import darkMode from '../assets/icons/moon-dark.svg';
 import { ThemeContext } from '../context/ThemeContext'
 import { useContext } from 'react';
 

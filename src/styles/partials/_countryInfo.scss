@@ -142,10 +142,19 @@
       }
    }
 
+   &__covid-data-wrapper {
+      margin-top: 4rem;
+      color: #fff;
+   }
+
    .covid-data__loading-text {
       font-size: 2.2rem;
       font-weight: 800;
       line-height: 3rem;
       margin: 3rem 0 1.6rem;
+
+      @include tablet-portrait {
+         margin-top: 0;
+      }
    }
 }
