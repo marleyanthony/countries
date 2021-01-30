@@ -8,9 +8,9 @@ const Main = () => {
    const [userInput, setUserInput] = useState('');
    const [userSelect, setUserSelect] = useState('');
    const [currentCountry, setCurrentCountry] = useState<any[]>([]);
-   const [covidData, setCovidData] = useState<any[]>([]);
    const [userSelectedCountry, setUserSelectedCountry] = useState('');
 
+   // ! get countries by name
    useEffect(() => {
       axios
          .get(
@@ -27,6 +27,7 @@ const Main = () => {
          });
    }, [userInput, currentCountry])
 
+   // ! get countries by region
    useEffect(() => {
       axios
          .get(
@@ -42,24 +43,6 @@ const Main = () => {
          });
    }, [userSelect])
 
-   useEffect(() => {
-      axios
-         .get('https://covid-193.p.rapidapi.com/statistics', {
-            params: {
-               country: `${userSelectedCountry}`
-            },
-            headers: {
-               'x-rapidapi-key': '3818ad22a4msh5ab33bee728bfc6p144e31jsn8f038c1a2731',
-               'x-rapidapi-host': 'covid-193.p.rapidapi.com'
-            }
-         })
-         .then(res => {
-            setCovidData(res.data)
-         })
-         .catch(error => {
-            console.error(error);
-         });
-   }, [userInput, userSelectedCountry])
 
    const handleUserInput = (e: any) => {
       setUserInput(e.target.value);
@@ -69,13 +52,9 @@ const Main = () => {
       setUserSelect(e.target.value);
    }
 
-   // const clearState = () => {
-   //    setUserInput('');
-   //    setUserSelect('');
-   //    setCurrentCountry([]);
-   //    setCovidData([]);
-   //    setUserSelectedCountry('');
-   // }
+   const getCountryFromClick = (country: string) => {
+      setUserInput(country);
+   }
 
    return (
       <div className={theme.theme === 'light' ? 'main main--light' : 'main'}>
@@ -112,13 +91,15 @@ const Main = () => {
          }
          >
             {
-               currentCountry.map((country, index) => {
+               currentCountry.map((country: any, index: number) => {
                   let numberWithCommas = (x: number) => {
                      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                   }
 
                   return (
-                     <Link to={{ pathname: "/country-info", state: { country, covidData } }} key={index}>
+                     <Link
+                        to={`/${country.name}`}
+                        key={index}>
                         <div className={
                            theme.theme === 'light'
                               ? "card-wrapper__card card-wrapper__card--light"
@@ -151,7 +132,7 @@ const Main = () => {
                })
             }
          </section>
-      </div>
+      </div >
    )
 }
 

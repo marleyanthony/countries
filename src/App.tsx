@@ -12,8 +12,7 @@ function App() {
             <div className="app">
                <Header />
                <Route exact path="/" component={Main} />
-               <Route exact path="/country-info" component={CountryInfo} />
-               {/* <Main /> */}
+               <Route exact path={"/:country"} component={CountryInfo} />
             </div>
          </ThemeProvider>
       </Router>
