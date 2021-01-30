@@ -528,6 +528,13 @@
   }
 }
 
+.country .covid-data__loading-text {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 3rem;
+  margin: 3rem 0 1.6rem;
+}
+
 * {
   margin: 0;
   padding: 0;

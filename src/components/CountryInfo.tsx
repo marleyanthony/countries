@@ -2,6 +2,7 @@ import axios from 'axios';
 import { ThemeContext } from '../context/ThemeContext';
 import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 import backArrow from '../assets/icons/back-arrow-dark.svg';
 import backArrowLight from '../assets/icons/back-arrow.svg';
 
@@ -24,7 +25,7 @@ const CountryInfo = () => {
             }
          })
          .then(res => {
-            setCovidData(res.data.response)
+            setCovidData(res.data.response);
          })
          .catch(error => {
             console.error(error);
@@ -37,7 +38,7 @@ const CountryInfo = () => {
       axios
          .get(`https://restcountries.eu/rest/v2/name/${country}`)
          .then(res => {
-            setCurrentCountry([res.data.length > 1 ? res.data[0] : res.data])
+            setCurrentCountry([res.data.length > 1 ? res.data[0] : res.data[0]])
          })
          .catch(error => {
             console.error(error);
@@ -51,17 +52,18 @@ const CountryInfo = () => {
    }, []);
 
 
+
    const theme = useContext(ThemeContext);
 
    return (
       currentCountry[0] === undefined
-         ? <h1>Loading country...</h1>
+         ? <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} />
          : <section className="country__info-wrapper">{
             currentCountry.map((country, index) => {
                return (
                   <section className={theme.theme === 'light' ? 'country country--light' : 'country'} key={index}>
                      <a
-                        href="/countries"
+                        href="/"
                         className={
                            theme.theme === 'light'
                               ? 'country__back-button country__back-button--light'
@@ -73,7 +75,7 @@ const CountryInfo = () => {
                               ? <img src={backArrowLight} alt="back arrow" className="country__back-arrow" />
                               : <img src={backArrow} alt="back arrow" className="country__back-arrow" />
                         } Back
-                     </a>
+                  </a>
                      <div className="country__desktop-wrapper">
                         <div className="country__flag">
                            <img src={country.flag} alt="country flag" className="country__img" />
@@ -93,7 +95,7 @@ const CountryInfo = () => {
                                        <span className="country__label-bold">Native Name:</span> {country.nativeName}
                                     </p>
                                     <p className="country__label">
-                                       <span className="country__label-bold">Population:</span> {country.population.toLocaleString('en')}
+                                       <span className="country__label-bold">Population:</span> {country.population != null ? country.population.toLocaleString('en') : 'No Reported Poulation'}
                                     </p>
                                     <p className="country__label">
                                        <span className="country__label-bold">Region:</span> {country.region}
@@ -133,28 +135,10 @@ const CountryInfo = () => {
                                     </div>
                                  </div>
                               </div>
-                              <div className="country__border-wrapper">
-                                 <h1 className="country__border-heading">
-                                    Border Countries:
-                                 </h1>
-                                 <div className="country__border-country-wrapper">
-                                    {
-                                       country.borders.length >= 1
-                                          ? country.borders.map((border: any, index: number) => {
-                                             return (
-                                                <p className="country__border" key={index}>
-                                                   {(index ? ', ' : '') + border}
-                                                </p>
-                                             )
-                                          })
-                                          : <p className="country__border">None, it's an island. Duh. 🏝</p>
-                                    }
-                                 </div>
-                              </div>
                            </div>
                            {
                               covidData[0] === undefined
-                                 ? <h1>Loading Covid Data...</h1>
+                                 ? <h1 className="covid-data__loading-text">No Recent Covid Data Reported...</h1>
                                  : <div className="covid-data-wrapper">
                                     {
                                        covidData.map((covidData, index) => {
@@ -162,10 +146,14 @@ const CountryInfo = () => {
                                              <div className="country__covid-data-wrapper" key={index}>
                                                 <h1 className="country__covid-header">
                                                    Covid Data
-                                                </h1>
+                                             </h1>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">New Cases:</span>
-                                                   {covidData.cases.new.toLocaleString()}
+                                                   {
+                                                      covidData.cases.new
+                                                         ? covidData.cases.new.toLocaleString()
+                                                         : 'No Newly Reported Cases'
+                                                   }
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">Active Cases:</span>
@@ -207,7 +195,7 @@ const CountryInfo = () => {
                )
             })
          }
-         </section>
+         </section >
    )
 }
 

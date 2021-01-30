@@ -7,12 +7,12 @@ import { ThemeProvider } from './context/ThemeContext';
 
 function App() {
    return (
-      <Router basename={process.env.PUBLIC_URL + '/countries'}>
+      <Router basename={process.env.PUBLIC_URL}>
          <ThemeProvider>
             <div className="app">
                <Header />
-               <Route exact path="/countries" component={Main} />
-               <Route exact path={"/:country"} component={CountryInfo} />
+               <Route exact path="/" component={Main} />
+               <Route exact path="/:country" component={CountryInfo} />
             </div>
          </ThemeProvider>
       </Router>
