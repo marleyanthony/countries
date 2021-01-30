@@ -8,7 +8,7 @@ const Main = () => {
    const [userInput, setUserInput] = useState('');
    const [userSelect, setUserSelect] = useState('');
    const [currentCountry, setCurrentCountry] = useState<any[]>([]);
-   const [userSelectedCountry, setUserSelectedCountry] = useState('');
+
 
    // ! get countries by name
    useEffect(() => {
@@ -20,12 +20,12 @@ const Main = () => {
          )
          .then(res => {
             setCurrentCountry(res.data);
-            setUserSelectedCountry(currentCountry[0].name)
          })
          .catch(error => {
             console.error(error);
          });
    }, [userInput, currentCountry])
+
 
    // ! get countries by region
    useEffect(() => {
@@ -50,10 +50,6 @@ const Main = () => {
 
    const handleUserSelect = (e: any) => {
       setUserSelect(e.target.value);
-   }
-
-   const getCountryFromClick = (country: string) => {
-      setUserInput(country);
    }
 
    return (
@@ -92,10 +88,6 @@ const Main = () => {
          >
             {
                currentCountry.map((country: any, index: number) => {
-                  let numberWithCommas = (x: number) => {
-                     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                  }
-
                   return (
                      <Link
                         to={`/${country.name}`}
@@ -115,7 +107,7 @@ const Main = () => {
                               </h2>
                               <p className="card-wrapper__info">
                                  <span className="card-wrapper__bold">Population:</span>
-                                 {numberWithCommas(country.population)}
+                                 {country.population.toLocaleString()}
                               </p>
                               <p className="card-wrapper__info">
                                  <span className="card-wrapper__bold">Region:</span>

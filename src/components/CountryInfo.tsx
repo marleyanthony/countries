@@ -24,7 +24,6 @@ const CountryInfo = () => {
             }
          })
          .then(res => {
-            console.log(res)
             setCovidData(res.data.response)
          })
          .catch(error => {
@@ -33,27 +32,23 @@ const CountryInfo = () => {
    }, [country])
 
 
+   // ! get country specific data 
    useEffect(() => {
       axios
          .get(`https://restcountries.eu/rest/v2/name/${country}`)
          .then(res => {
-            setCurrentCountry(res.data)
+            setCurrentCountry([res.data.length > 1 ? res.data[0] : res.data])
          })
          .catch(error => {
             console.error(error);
          });
    }, [country])
 
-   console.log(country)
-
-
-
 
 
    useEffect(() => {
       window.scrollTo(0, 0);
    }, []);
-
 
 
    const theme = useContext(ThemeContext);
@@ -63,21 +58,15 @@ const CountryInfo = () => {
          ? <h1>Loading country...</h1>
          : <section className="country__info-wrapper">{
             currentCountry.map((country, index) => {
-               // const numberWithCommas = (numberToConvert: number) => {
-               //    return numberToConvert.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-               // }
-
                return (
                   <section className={theme.theme === 'light' ? 'country country--light' : 'country'} key={index}>
                      <a
-                        href="/"
+                        href="/countries"
                         className={
                            theme.theme === 'light'
                               ? 'country__back-button country__back-button--light'
                               : 'country__back-button'
                         }
-                        // onClick={props.location.state.clearUserSelect}
-                        onClick={() => console.log('go back')}
                      >
                         {
                            theme.theme === 'light'
@@ -104,7 +93,7 @@ const CountryInfo = () => {
                                        <span className="country__label-bold">Native Name:</span> {country.nativeName}
                                     </p>
                                     <p className="country__label">
-                                       <span className="country__label-bold">Population:</span> {country.population}
+                                       <span className="country__label-bold">Population:</span> {country.population.toLocaleString('en')}
                                     </p>
                                     <p className="country__label">
                                        <span className="country__label-bold">Region:</span> {country.region}
@@ -164,7 +153,7 @@ const CountryInfo = () => {
                               </div>
                            </div>
                            {
-                              covidData === undefined
+                              covidData[0] === undefined
                                  ? <h1>Loading Covid Data...</h1>
                                  : <div className="covid-data-wrapper">
                                     {
@@ -176,27 +165,35 @@ const CountryInfo = () => {
                                                 </h1>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">New Cases:</span>
-                                                   {covidData.cases.new}
+                                                   {covidData.cases.new.toLocaleString()}
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">Active Cases:</span>
-                                                   {covidData.cases.active}
+                                                   {covidData.cases.active.toLocaleString()}
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">Recovered:</span>
-                                                   {covidData.cases.recovered}
+                                                   {covidData.cases.recovered.toLocaleString()}
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">Total Cases:</span>
-                                                   {covidData.cases.total}
+                                                   {covidData.cases.total.toLocaleString()}
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">New Deaths:</span>
-                                                   {covidData.deaths.new}
+                                                   {
+                                                      covidData.deaths.new != null
+                                                         ? covidData.deaths.new.toLocaleString()
+                                                         : 'No reported new deaths.'
+                                                   }
                                                 </p>
                                                 <p className="country__label">
                                                    <span className="country__label-bold">Total Deaths:</span>
-                                                   {covidData.deaths.total}
+                                                   {
+                                                      covidData.deaths.total != null
+                                                         ? covidData.deaths.total.toLocaleString()
+                                                         : 'No reported total deaths.'
+                                                   }
                                                 </p>
                                              </div>
                                           )
