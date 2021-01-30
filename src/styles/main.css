@@ -451,8 +451,8 @@
 
 @media (min-width: 1200px) {
   .country__info {
-    width: 50%;
-    padding: 0 5rem;
+    width: 35%;
+    padding: 0 0 0 5rem;
   }
 }
 
@@ -531,6 +531,12 @@
 .country__covid-data-wrapper {
   margin-top: 4rem;
   color: #fff;
+}
+
+@media (min-width: 600px) {
+  .country__covid-data-wrapper {
+    margin-top: 0;
+  }
 }
 
 .country .covid-data__loading-text {

@@ -76,8 +76,9 @@
       }
 
       @include desktop {
-         width: 50%;
-         padding: 0 5rem;
+         width: 35%;
+         padding: 0 0 0 5rem;
+
       }
    }
 
@@ -145,6 +146,10 @@
    &__covid-data-wrapper {
       margin-top: 4rem;
       color: #fff;
+
+      @include tablet-portrait {
+         margin-top: 0;
+      }
    }
 
    .covid-data__loading-text {

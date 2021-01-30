@@ -12,6 +12,9 @@ const Header = () => {
          <h5 className="header__logo">
             Where in the World?
          </h5>
+         <h5>
+            Made with ❤️ By Marley A.
+         </h5>
          {/* {
             theme.theme === 'dark'
                ? <button
